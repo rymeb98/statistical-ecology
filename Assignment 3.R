@@ -799,7 +799,8 @@ AICtab(bbs.fit, bbs.fitifb, bbs.fitil1, bbs.fitil2, bbs.fitimap, bbs.fitiy, bbs.
 #bbs.fitiy   32377.6 2 
 #bbs.fitifb  33019.7 2 
 
-#adding mean annual temp as a predictor since the original model (bbs.fit) seems to be the best model for the TotalSpp predictor
+#Adding mean annual temp as a predictor since the original model (bbs.fit) seems to be the best model for the TotalSpp predictor
+#As shown by the AIC value for bbs.fit being 0.0
 bbs$Temp_s <- scale(bbs$mean_annual_temp)
 bbs.fitWmat <- mle2(TotalSpp ~ dpois(lambda = exp(int +
                                                 y*Year_s +
@@ -818,8 +819,10 @@ AICtab(bbs.fit, bbs.fitWmat)
 #bbs.fitWmat    0.0 7 
 #bbs.fit     5207.6 6 
 
-#Adding the mean_annual temp predictor actually made the model notably better than the original one
+#Adding the mean_annual_temp predictor actually made the model notably better than the original one as evident by the 
+#AIC for bbs.fitWmat being 0.0
 
 #-------------------------Model 2: Total sightings-------------------
 
 #due to time I am submitting this as of right now with just 1 response variable, but I will resubmit it with a second response variable later.
+
